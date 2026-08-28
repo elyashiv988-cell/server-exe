@@ -19,7 +19,6 @@ def get_grades(student_id):
 
         raise HTTPException(status_code=404, detail=f"Student with ID {student_id} was not found")
                         
-
 class AddStudent(BaseModel):
     id: str
     name: str
@@ -62,7 +61,7 @@ def update_student(updating: UpdatingStudent):
 
     if not found_id:
         raise HTTPException(status_code=404, detail=f"Student with {updating.id} ID was not found!")
-        
+       
 @app.delete("/grades/delete/")
 def delete_student(student_id: str | None = None, student_name: str | None = None):
     found_id = False
@@ -82,10 +81,17 @@ def delete_student(student_id: str | None = None, student_name: str | None = Non
     if not found_id and not found_name:
         raise HTTPException(status_code=404, detail=f"Student with this value was not found!")
 
+class Creds(BaseModel):
+    username: str
+    password: str
+
+@app.post("/user/signup/")
+def signin_user(creds: Creds):
+    data_users = read_users_data()
+    for user in data_users:
+
+        if creds.username == user["username"]:
+            raise HTTPException(status_code=404, detail=f"Exsits name!")
+        
+    save_users_to_db(creds.username, creds.password)
    
-
-
-
-
-
-
