@@ -1,8 +1,8 @@
 import json
 import csv 
 
-db_users = '/Users/elyashiv/kodcode/projects/server-exe/server/db users/data_users.csv'
-db_grades = '/Users/elyashiv/kodcode/projects/server-exe/server/db grades/data_grades.json'
+db_users = 'db users/data_users.csv'
+db_grades = 'db grades/data_grades.json'
 
 def write_to_data_base(data):
 
@@ -25,8 +25,8 @@ def read_users_data():
         return [row for row in reader]
 
 
-def save_users_to_db(username, password):
-    user = {"id": None, "username": username, "password": password, "type": "user"}
+def save_users_to_db(id, username, password, type):
+    user = {"id": id, "username": username, "password": password, "type": type}
     data = read_users_data()
     data.append(user)
 

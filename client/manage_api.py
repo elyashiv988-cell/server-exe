@@ -89,5 +89,4 @@ def add_user(base_url):
     response = requests.post(f"{base_url}user/signup/",json={"username":username,"password": password})
     check_status_code(response)
 
-
     
