@@ -11,12 +11,17 @@
     },
     {
         "id": "3",
-        "name": "hadas",
+        "name": "Hadas",
         "grade": "90"
     },
     {
         "id": "4",
         "name": "Noa",
         "grade": "100"
+    },
+    {
+        "id": "5",
+        "name": "Ori",
+        "grade": "80"
     }
 ]

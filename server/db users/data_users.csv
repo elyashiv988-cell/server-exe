@@ -1,6 +1,3 @@
 id,username,password,type
-1,eli,1234,admin
-2,tamar,1234,admin
-3,ori,1234,manager
-,Natan,N123,user
-,eli39,321,user
+1,eli,$2b$12$QETvY1okuAoh82yUvjn6xuyOf.xhJl7I5n6/1Da8y7n3yp4x/dlze,admin
+2,user,$2b$12$xYQ2uvRjPM8/sfqx0WnbheYZE72StmKaBEaUu1MWeJayx4lIzSmqy,guest
