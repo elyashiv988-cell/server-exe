@@ -9,8 +9,8 @@ def get_base_url():
 def check_status_code(response):
 
     if response.status_code == 200:
-        print("Success:", response.status_code,response.json())
-    elif response.status_code == 404:
+        print("Success:", response.status_code)
+    else:
         print(f"Error {response.status_code}. {response.json().get("detail")}")
         
 def get_all_grades(base_url):
@@ -23,25 +23,35 @@ def get_all_grades(base_url):
     for student in data_student:
         print(student)
     
-def get_grade_by_id(base_url, student_id):
+def get_grade_by_id(base_url):
 
-    response = requests.get(f"{base_url}read/{student_id}")
+    username = questionary.text("Enter username:").ask()
+    password = questionary.text("Enter password:").ask()
+    student_id = questionary.text("Enter ID:", validate=validat_nums_only).ask()
+    
+    response = requests.get(f"{base_url}grades/read/by_id",params={"student_id": student_id}, json={"username":username,"password": password})
 
     check_status_code(response)
 
 def add_grade(base_url):
-    
-    id_ =  questionary.text ("Enter ID:", validate=validat_nums_only).ask()
+
+    username = questionary.text("Enter username:").ask()
+    password = questionary.text("Enter password:").ask()
+
+    student_id =  questionary.text ("Enter ID:", validate=validat_nums_only).ask()
     name = questionary.text("Enter name:", validate=validat_chars_only).ask()
     grade = questionary.text("Enter grade: ", validate=validat_nums_only).ask()
                    
-    response = requests.post(f"{base_url}grades/add/", json={"id": id_, "name": name, "grade": grade})
+    response = requests.post(f"{base_url}grades/add/", params={"student_id": student_id, "name": name, "grade": grade}, json={"username":username,"password": password})
 
     check_status_code(response)
 
 def update_studnt(base_url):
 
-    id_ = questionary.text("Enter ID:", validate=validat_nums_only).ask()
+    username = questionary.text("Enter username:").ask()
+    password = questionary.text("Enter password:").ask()
+
+    student_id = questionary.text("Enter ID:", validate=validat_nums_only).ask()
     name = None
     grade = None
     ans = questionary.select("",choices=["Update name:", "Update grade:"]).ask()
@@ -50,11 +60,16 @@ def update_studnt(base_url):
     elif ans == "Update grade:":
         grade = questionary.text("Enter grade: ", validate=validat_nums_only).ask()
 
-    response = requests.put(f"{base_url}grades/update/", json={"id": id_, "name": name, "grade": grade})
+    response = requests.put(f"{base_url}grades/update/",params= {"student_id": student_id, "name": name, "grade": grade}, json={"username": username, "password": password})
+        
+    
 
     check_status_code(response)
 
 def delete_student(base_url):
+
+    username = questionary.text("Enter username:").ask()
+    password = questionary.text("Enter password:").ask()
 
     ans = questionary.select("",choices=["Delete by ID","Delete by name"]).ask()
     id_= None
@@ -63,14 +78,14 @@ def delete_student(base_url):
         id_ = questionary.text("Enter ID:", validate=validat_nums_only).ask()
     elif ans == "Delete by name":
         name = questionary.text("Enter name:", validate=validat_chars_only).ask()
-    response = requests.delete(f"{base_url}grades/delete/",params={"student_id":id_, "student_name":name})
+    response = requests.delete(f"{base_url}grades/delete/",params={"student_id":id_, "student_name":name},json={"username": username, "password": password})
 
     check_status_code(response)
 
 def add_user(base_url):
 
-    username = questionary.text("Enter username:", validate=validat_chars_only).ask()
-    password = questionary.text("Enter password:", validate=validat_chars_only).ask()
+    username = questionary.text("Enter username:").ask()
+    password = questionary.text("Enter password:").ask()
     response = requests.post(f"{base_url}user/signup/",json={"username":username,"password": password})
     check_status_code(response)
 
