@@ -1,5 +1,6 @@
 id,username,password,type
-,dod,sksjs,user
-,bob,dkkd,user
-,elie,kdshk,user
-,lsie,skdhsd,user
+1,eli,1234,admin
+2,tamar,1234,admin
+3,ori,1234,manager
+,Natan,N123,user
+,eli39,321,user

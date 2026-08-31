@@ -6,7 +6,7 @@ from manage_api import *
 
 def display_menu():
 
-    ans = questionary.select("\nGrade manager:",choices=["Add grade","Remove grade","Edit grade","Show grades","Sign up","Exit"]).ask()
+    ans = questionary.select("\nGrade manager:",choices=["Show grades","Add grade","Edit grade","Remove grade","Sign up","Exit"]).ask()
     
     return ans
 
@@ -31,7 +31,7 @@ def run_app(base_url):
                 get_all_grades(base_url)
 
             elif ans == "show grade by ID":
-                get_grade_by_id(base_url,questionary.text("Enter ID student:",validate=validat_nums_only).ask())
+                get_grade_by_id(base_url)
 
             elif ans == "Return":
                 continue
