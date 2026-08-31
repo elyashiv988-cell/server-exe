@@ -9,7 +9,7 @@ def get_base_url():
 def check_status_code(response):
 
     if response.status_code == 200:
-        print("Success:", response.status_code)
+        print("Success:", response.status_code, response.json() if response.json() else "")
     else:
         print(f"Error {response.status_code}. {response.json().get("detail")}")
         
