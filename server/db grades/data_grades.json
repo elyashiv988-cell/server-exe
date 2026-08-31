@@ -10,11 +10,6 @@
         "grade": "90"
     },
     {
-        "id": "3",
-        "name": "Hadas",
-        "grade": "90"
-    },
-    {
         "id": "4",
         "name": "Noa",
         "grade": "100"
@@ -23,5 +18,20 @@
         "id": "5",
         "name": "Ori",
         "grade": "80"
+    },
+    {
+        "id": "6",
+        "name": "Gad",
+        "grade": "33"
+    },
+    {
+        "id": "9",
+        "name": "Yossi",
+        "grade": "50"
+    },
+    {
+        "id": "10",
+        "name": "Noam",
+        "grade": "49"
     }
 ]

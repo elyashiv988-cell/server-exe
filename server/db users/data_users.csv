@@ -1,3 +1,4 @@
 id,username,password,type
 1,eli,$2b$12$QETvY1okuAoh82yUvjn6xuyOf.xhJl7I5n6/1Da8y7n3yp4x/dlze,admin
 2,user,$2b$12$xYQ2uvRjPM8/sfqx0WnbheYZE72StmKaBEaUu1MWeJayx4lIzSmqy,guest
+3,tal,$2b$12$O56V/LgbeuvAKqmDiX6R9ujBgGEGWKcMk75qvpatTRW1kXY46XOO2,guest
