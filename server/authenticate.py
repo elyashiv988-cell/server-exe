@@ -9,5 +9,5 @@ def authenticate(creds: Creds, data_users, allowed_types: list[str]):
         if creds.username == user["username"] and verify_password(creds.password, user["password"]):
             if user["type"] not in allowed_types:
                 raise HTTPException(status_code=401, detail="Not enough permissions")
-            return user
+            return
     raise HTTPException(status_code=403, detail="Incorrect login details")
