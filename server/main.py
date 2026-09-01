@@ -18,7 +18,7 @@ def get_grades_by_id(student_id: str, creds: Creds):
     data_grades = read_from_data_base()
     data_users = read_users_data()
 
-    user = authenticate(creds, data_users, ["guest", "user", "manager", "admin"])
+    authenticate(creds, data_users, ["guest", "user", "manager", "admin"])
 
     for student in data_grades:
         if student["id"] == student_id:
@@ -31,7 +31,7 @@ def add_grade(student_id: str, name: str, grade: str, creds: Creds):
     student_data = read_from_data_base()
     data_users = read_users_data()
 
-    user = authenticate(creds, data_users, ["user", "manager", "admin"])
+    authenticate(creds, data_users, ["user", "manager", "admin"])
 
     for student in student_data:
         if student["id"] == student_id:
@@ -49,7 +49,7 @@ def update_student(creds: Creds, student_id: str, name: str | None = None, grade
     student_data = read_from_data_base()
     data_users = read_users_data()
 
-    user = authenticate(creds, data_users, ["manager", "admin"])
+    authenticate(creds, data_users, ["manager", "admin"])
 
     for student in student_data:
         if student["id"] == student_id:
@@ -69,7 +69,7 @@ def delete_student(creds: Creds, student_id: str | None = None, student_name: st
     student_data = read_from_data_base()
     data_users = read_users_data()
     
-    user = authenticate(creds, data_users, ["admin"])
+    authenticate(creds, data_users, ["admin"])
 
     for student in student_data:
         if student["id"]==student_id or student["name"] == student_name:
