@@ -5,26 +5,41 @@ Simple API project for managing student grades.
 ## Project structure
 
 client/
-    client.py       - the CLI app the user runs
-    manage_api.py   - functions that call the API from the client
-    validations.py  - input validation
-    req.txt         - client dependencies
+
+    client.py       - the CLI app the user runs. 
+
+    manage_api.py   - functions that call the API from the client. 
+
+    validations.py  - input validation. 
+
+    req.txt         - client dependencies. 
 
 server/
-    main.py         - the API server (FastAPI)
-    file_manager.py - reads and writes the data files (json/csv)
-    authenticate.py - checks username/password and permissions
-    hashing.py      - hashes and checks passwords (bcrypt)
-    models.py       - data models (Creds)
-    req.txt         - server dependencies
+
+    main.py         - the API server (FastAPI). 
+
+    file_manager.py - reads and writes the data files (json/csv). 
+
+    authenticate.py - checks username/password and permissions. 
+
+    hashing.py      - hashes and checks passwords (bcrypt). 
+
+    models.py       - data models (Creds). 
+
+    req.txt         - server dependencies. 
+
     db grades/
-        data_grades.json
+
+        data_grades.json. 
+
     db users/
-        data_users.csv
+
+        data_users.csv. 
+
 
 ## How to run
 
-Run in terminal:
+Run in Bash:
 
 ### 1. Set up the server
 
