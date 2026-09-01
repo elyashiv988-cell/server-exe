@@ -43,20 +43,30 @@ server/
 Run in Bash:
 
 ### 1. Set up the server
-
+```
 cd server
+```
+```
 pip install -r req.txt
+```
+```
 uvicorn main:app --reload
+```
 
 Keep this terminal open, the server needs to keep running.
 
 ### 2. Set up the client
 
 Open a new terminal:
-
+```
 cd client
+```
+```
 pip install -r req.txt
+```
+```
 python client.py
+```
 
 ## Users and permissions
 
